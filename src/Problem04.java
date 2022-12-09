@@ -1,50 +1,34 @@
 import java.util.Arrays;
-import java.util.PriorityQueue;
 import java.util.Scanner;
 
 /**
  * @author kuang
- * @description 贪心+大根堆
- * @date 2022/12/5  14:22
+ * @description 输油管道 排序
+ * @date 2022/12/9  13:48
  */
 public class Problem04 {
     private static final Scanner scanner = new Scanner(System.in);
-    private static PriorityQueue<String> pq = new PriorityQueue<>(Problem04::compare);
+    
+    private static int[] nums;
     
     private static void preProcess() {
-        String str = scanner.nextLine();
-        String[] nums = str.split("[,，]");
+        String str = scanner.nextLine().replace(")(", " ");
         scanner.close();
-        pq.addAll(Arrays.asList(nums));
-    }
-    
-    private static int compare(String a, String b) {
-        int len1 = a.length();
-        int len2 = b.length();
-        if (len1 > len2) {
-            return -compare(b, a);
+        String[] strings = str.substring(1, str.length() - 1).split(" ");
+        nums = new int[strings.length / 2];
+        for (int i = 1; i < strings.length; i = i + 2) {
+            nums[i / 2] = Integer.parseInt(strings[i]);
         }
-        char[] aa = a.toCharArray();
-        char[] bb = b.toCharArray();
-        int k = 0;
-        while (k < len1) {
-            char c1 = aa[k];
-            char c2 = bb[k];
-            if (c1 != c2) {
-                return c2 - c1;
-            }
-            k++;
-        }
-        return compare(a, b.substring(len1));
     }
     
     public static void main(String[] args) {
         preProcess();
-        StringBuffer sb = new StringBuffer();
-        while (!pq.isEmpty()) {
-            String str = pq.poll();
-            sb.append(str);
+        Arrays.sort(nums);
+        int len = nums.length;
+        int ret = 0;
+        for (int i = len - 1; i >= len / 2; i--) {
+            ret += nums[i] - nums[len - i - 1];
         }
-        System.out.println(sb);
+        System.out.println(ret);
     }
 }

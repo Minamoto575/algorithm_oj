@@ -1,35 +1,47 @@
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * @author kuang
- * @description 排序+贪心
- * @date 2022/12/6  10:42
+ * @description 对称轴 模拟
+ * @date 2022/12/9  11:10
  */
 public class Problem02 {
     private static final Scanner scanner = new Scanner(System.in);
-    private static int[] nums;
-    private static int n;
+    private static Map<Integer, Set<Integer>> map = new HashMap<>();
+    
+    private static Double middle;
     
     private static void preProcess() {
-        n = scanner.nextInt();
-        scanner.nextLine();
         String str = scanner.nextLine();
         scanner.close();
-        nums = Arrays.stream(str.split("[,，]")).mapToInt(Integer::parseInt).toArray();
+        str = str.replace(")(", ",");
+        String[] nums = str.substring(1, str.length() - 1).split(",");
+        int max = Integer.MIN_VALUE, min = Integer.MAX_VALUE;
+        for (int i = 0; i < nums.length; i = i + 2) {
+            Integer x = Integer.parseInt(nums[i]), y = Integer.parseInt(nums[i + 1]);
+            max = Math.max(max, x);
+            min = Math.min(min, x);
+            Set<Integer> set = map.getOrDefault(x, new HashSet<>());
+            set.add(y);
+            map.put(x, set);
+        }
+        middle = (((double) max + (double) min) / 2);
     }
     
     public static void main(String[] args) {
         preProcess();
-        Arrays.sort(nums);
-        int spiltIndex = n / 2;
-        int sum1 = 0, sum2 = 0;
-        for (int i = 0; i < spiltIndex; i++) {
-            sum1 += nums[i];
+        for (Integer x : map.keySet()) {
+            Set<Integer> set = map.get(x);
+            Integer xx = (int) (2 * middle - x);
+            for (Integer y : set) {
+                Set<Integer> s = map.get(xx);
+                if (s == null || !s.contains(y)) {
+                    System.out.println(0);
+                    return;
+                }
+            }
         }
-        for (int i = spiltIndex; i < n; i++) {
-            sum2 += nums[i];
-        }
-        System.out.println(n % 2 + "," + (sum2 - sum1));
+        System.out.println(1);
     }
+    
 }
