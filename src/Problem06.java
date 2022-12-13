@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
@@ -51,10 +53,34 @@ public class Problem06 {
                 }
             }
         }
-        System.out.println(dp[k][nums.length]);
+        showResult(dp, costs);
     }
     
-    // private void showResult(int[][] dp) {
-    //
-    // }
+    /**
+     * @param dp
+     * @param costs
+     * @description 倒序遍历求选址餐馆的地址
+     * @author kuang
+     * @date 2022/12/13
+     */
+    public static void showResult(int[][] dp, int[][] costs) {
+        Deque<Integer> deque = new LinkedList<>();
+        int m = dp.length - 1, n = dp[0].length - 1;
+        int cur = dp[m][n];
+        while (m > 0 && n > 0) {
+            m--;
+            int tempN = n--;
+            while (dp[m][n] + costs[n + 1][tempN] != cur) {
+                n--;
+            }
+            deque.push(nums[(n + 1 + tempN) / 2 - 1]);
+            cur = dp[m][n];
+        }
+        while (!deque.isEmpty()) {
+            System.out.print(deque.pop());
+            if (!deque.isEmpty()) {
+                System.out.print(" ");
+            }
+        }
+    }
 }
