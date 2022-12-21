@@ -6,7 +6,7 @@ import java.util.Scanner;
  * @description 开关灯 模拟暴力
  * @date 2022/12/9  15:22
  */
-public class Problem12 {
+public class SwitchLamp {
     private static final Scanner scanner = new Scanner(System.in);
     private static int lamp, people;
     

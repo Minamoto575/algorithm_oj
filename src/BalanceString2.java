@@ -7,7 +7,6 @@ import java.util.Scanner;
  */
 public class BalanceString2 {
     private static final Scanner scanner = new Scanner(System.in);
-    
     private static String str;
     
     private static void preProcess() {

@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @description 快餐店仓库选址 dp
  * @date 2022/12/9  15:08
  */
-public class Problem06 {
+public class SelectWarehouseAddress {
     private static final Scanner scanner = new Scanner(System.in);
     private static int k;
     private static int[] nums;

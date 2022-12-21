@@ -7,11 +7,9 @@ import java.util.Scanner;
  * @description 峰值数2 排序
  * @date 2022/12/6  11:01
  */
-public class Problem08 {
+public class PeakNumber2 {
     private static final Scanner scanner = new Scanner(System.in);
-    
     private static Point[] points;
-    
     
     private static void preProcess() {
         String s = scanner.nextLine();

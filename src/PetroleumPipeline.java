@@ -6,9 +6,8 @@ import java.util.Scanner;
  * @description 输油管道 排序
  * @date 2022/12/9  13:48
  */
-public class Problem04 {
+public class PetroleumPipeline {
     private static final Scanner scanner = new Scanner(System.in);
-    
     private static int[] nums;
     
     private static void preProcess() {

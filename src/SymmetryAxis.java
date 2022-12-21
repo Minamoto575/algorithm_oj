@@ -5,10 +5,9 @@ import java.util.*;
  * @description 对称轴 模拟
  * @date 2022/12/9  11:10
  */
-public class Problem02 {
+public class SymmetryAxis {
     private static final Scanner scanner = new Scanner(System.in);
     private static Map<Integer, Set<Integer>> map = new HashMap<>();
-    
     private static Double middle;
     
     private static void preProcess() {
@@ -43,5 +42,4 @@ public class Problem02 {
         }
         System.out.println(1);
     }
-    
 }

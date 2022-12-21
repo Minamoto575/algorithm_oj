@@ -6,7 +6,7 @@ import java.util.Scanner;
  * @description 峰值数1 一次遍历
  * @date 2022/12/6  11:06
  */
-public class Problem07 {
+public class PeakNumber1 {
     private static final Scanner scanner = new Scanner(System.in);
     private static int[] nums;
     

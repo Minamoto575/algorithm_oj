@@ -10,7 +10,6 @@ import java.util.Set;
  */
 public class ReciprocalNumber {
     private static final Scanner scanner = new Scanner(System.in);
-    
     private static int[] nums;
     
     private static void preProcess() {
@@ -36,5 +35,4 @@ public class ReciprocalNumber {
         }
         System.out.println(ret);
     }
-    
 }

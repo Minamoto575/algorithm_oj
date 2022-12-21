@@ -6,7 +6,7 @@ import java.util.Scanner;
  * @description 分裂数组（3） 排序+贪心
  * @date 2022/12/6  10:42
  */
-public class Problem11 {
+public class SplitArray3 {
     private static final Scanner scanner = new Scanner(System.in);
     private static int[] nums;
     private static int n;

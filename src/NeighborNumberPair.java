@@ -8,7 +8,6 @@ import java.util.Scanner;
  */
 public class NeighborNumberPair {
     private static final Scanner scanner = new Scanner(System.in);
-    
     private static int[] nums;
     
     private static void preProcess() {

@@ -8,11 +8,9 @@ import java.util.Scanner;
  */
 public class BalanceString {
     private static final Scanner scanner = new Scanner(System.in);
-    
     private static String str;
     private static int[] charCnt = new int[26];
     private static int[] searchCnt = new int[26];
-    
     private static int len;
     
     private static void preProcess() {

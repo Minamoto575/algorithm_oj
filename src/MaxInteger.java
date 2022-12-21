@@ -7,9 +7,9 @@ import java.util.Scanner;
  * @description 最大整数 贪心+大根堆
  * @date 2022/12/5  14:22
  */
-public class Problem09 {
+public class MaxInteger {
     private static final Scanner scanner = new Scanner(System.in);
-    private static PriorityQueue<String> pq = new PriorityQueue<>(Problem09::compare);
+    private static PriorityQueue<String> pq = new PriorityQueue<>(MaxInteger::compare);
     
     private static void preProcess() {
         String str = scanner.nextLine();

@@ -3,10 +3,10 @@ import java.util.Scanner;
 
 /**
  * @author kuang
- * @description 分裂数组（2） 暴力
- * @date 2022/12/6  10:55
+ * @description 分裂数组（1） 暴力
+ * @date 2022/12/5  11:19
  */
-public class Problem10 {
+public class SplitArray1 {
     private static final Scanner scanner = new Scanner(System.in);
     private static int n;
     private static int[] nums;
@@ -21,11 +21,14 @@ public class Problem10 {
         sum = Arrays.stream(nums).sum();
     }
     
-    private static boolean dfs(int step, int val, int target) {
-        if (step == nums.length) {
+    private static boolean dfs(int step, int left, int val, int target) {
+        if (left == 0) {
             return val == target;
         }
-        return dfs(step + 1, val + nums[step], target) || dfs(step + 1, val, target);
+        if (step == nums.length) {
+            return false;
+        }
+        return dfs(step + 1, left - 1, val + nums[step], target) || dfs(step + 1, left, val, target);
     }
     
     public static void main(String[] args) {
@@ -34,6 +37,6 @@ public class Problem10 {
             System.out.println("false");
             return;
         }
-        System.out.println(dfs(0, 0, sum / 2));
+        System.out.println(dfs(0, nums.length / 2, 0, sum / 2));
     }
 }

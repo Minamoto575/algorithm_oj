@@ -8,12 +8,10 @@ import java.util.Scanner;
  * @description 油田数 并查集
  * @date 2022/12/9  11:58
  */
-public class Problem03 {
+public class OilfieldsNumber {
     private static final Scanner scanner = new Scanner(System.in);
     private static boolean[][] arr;
-    
     private static int m, n;
-    ;
     
     private static void preProcess() {
         List<String> strings = new ArrayList<>();

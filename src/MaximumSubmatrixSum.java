@@ -7,9 +7,8 @@ import java.util.Scanner;
  * @description 最大子矩阵和 前缀和
  * @date 2022/12/9  13:59
  */
-public class Problem05 {
+public class MaximumSubmatrixSum {
     private static final Scanner scanner = new Scanner(System.in);
-    
     private static int[][] prefixes;
     private static int size;
     

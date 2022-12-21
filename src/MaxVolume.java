@@ -10,7 +10,6 @@ public class MaxVolume {
     private static final Scanner scanner = new Scanner(System.in);
     private static int[] nums;
     
-    
     private static void preProcess() {
         String numsStr = scanner.nextLine().replace(" ", "");
         scanner.close();
