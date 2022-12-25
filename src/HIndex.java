@@ -14,7 +14,6 @@ public class HIndex {
         String str = scanner.nextLine();
         scanner.close();
         nums = Arrays.stream(str.split(",")).mapToInt(Integer::parseInt).toArray();
-        System.out.println(str);
     }
     
     public static void main(String[] args) {

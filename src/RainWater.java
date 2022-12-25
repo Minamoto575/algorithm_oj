@@ -20,15 +20,13 @@ public class RainWater {
         preProcess();
         int len = nums.length;
         int[] leftMax = new int[len], rightMax = new int[len];
-        int max = 0;
-        for (int i = 0; i < len; i++) {
-            leftMax[i] = max;
-            max = Math.max(max, nums[i]);
+        leftMax[0] = 0;
+        for (int i = 1; i < len; i++) {
+            leftMax[i] = Math.max(leftMax[i - 1], nums[i - 1]);
         }
-        max = 0;
-        for (int i = len - 1; i >= 0; i--) {
-            rightMax[i] = max;
-            max = Math.max(max, nums[i]);
+        rightMax[len - 1] = 0;
+        for (int i = len - 2; i >= 0; i--) {
+            rightMax[i] = Math.max(rightMax[i + 1], nums[i + 1]);
         }
         int ret = 0;
         for (int i = 0; i < len; i++) {

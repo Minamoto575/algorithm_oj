@@ -16,7 +16,6 @@ public class BalanceString2 {
     
     public static void main(String[] args) {
         preProcess();
-        System.out.println(str);
         int ret = 0;
         // 计数变量 正数表示L多 负数表示R多 为0则ret加1
         int count = 0;
